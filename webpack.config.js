@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
@@ -17,13 +18,17 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [
+                    { loader: MiniCssExtractPlugin.loader },
+                    'css-loader'
+                ]
             }
         ]
     },
     plugins: [
         new CleanWebpackPlugin(),
         new webpack.ProgressPlugin(),
+        new MiniCssExtractPlugin()
         // new BundleAnalyzerPlugin()
     ]
 }
