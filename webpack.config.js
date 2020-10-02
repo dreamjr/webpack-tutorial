@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     mode: 'none',
@@ -17,13 +17,13 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['css-loader']
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
     plugins: [
         new CleanWebpackPlugin(),
         new webpack.ProgressPlugin(),
-        new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin()
     ]
 }
