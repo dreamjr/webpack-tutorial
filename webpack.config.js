@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
@@ -13,6 +14,9 @@ module.exports = {
         // filename: '[chunkhash].bundle.js',
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
+    },
+    devServer: {
+        port: 9000,
     },
     module: {
         rules: [
@@ -28,7 +32,10 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new webpack.ProgressPlugin(),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        })
         // new BundleAnalyzerPlugin()
     ]
 }

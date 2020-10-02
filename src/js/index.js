@@ -8,4 +8,7 @@ function component() {
     return element;
 }
 
+const div = document.querySelector(".container");
+div.innerText = "Webpack loaded!!";
+
 document.body.appendChild(component());
