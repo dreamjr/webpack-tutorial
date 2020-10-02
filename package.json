@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server",
-    "build": "webpack"
+    "serve": "webpack-dev-server",
+    "build-dev": "webpack --env.mode=development",
+    "build-prod": "webpack --env.mode=production",
+    "analyze": "webpack --env.isAnalyze=true"
   },
   "keywords": [],
   "author": "",
